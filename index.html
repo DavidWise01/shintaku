@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>信託 · Shintaku — trustless is trust relocated, not removed</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;600&family=Shippori+Mincho:wght@500;700&display=swap');
+  :root{ --ink-bg:#161310; --coral:#e08a6a; --coral-hi:#f0a886; --coral-br:#cc785c;
+    --text:#e9e0d2; --dim:#8a7360; --border:rgba(224,138,106,0.14); --btc:#f7931a; --green:#6fbf8a; }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--ink-bg);color:var(--text);font-family:Newsreader,Georgia,serif;line-height:1.68;
+    background:radial-gradient(ellipse 60% 45% at 50% 8%,rgba(224,138,106,0.05),transparent 60%),var(--ink-bg)}
+  .wrap{position:relative;max-width:820px;margin:0 auto;padding:44px 24px 100px}
+  .kana-idx{position:absolute;top:32px;right:24px;font-family:'Shippori Mincho',serif;font-size:30px;color:var(--coral-br);text-align:right}
+  .kana-idx .num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--coral);display:block;margin-top:2px}
+  h1{font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(23px,4.2vw,35px);margin:0;color:var(--coral-hi)}
+  h1 .en{display:block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;color:var(--coral);margin-top:8px;text-transform:uppercase}
+  .sub{max-width:70ch;font-size:16px;margin:16px 0 0}
+  .byline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--dim);margin:12px 0 0;text-transform:uppercase}
+  h2{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin:0 0 12px}
+  section{margin:40px 0 0;padding:22px 24px;border:1px solid var(--border);border-radius:2px;background:rgba(224,138,106,0.02)}
+  .explain{max-width:74ch;font-size:15.5px} .explain b{color:var(--coral-hi);font-weight:500}
+  .jp{font-family:'Shippori Mincho',serif;color:var(--coral-hi)}
+  .ledger{margin-top:8px;border:1px solid var(--border);border-radius:3px;overflow:hidden}
+  .lrow{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+  .lrow:last-child{border-bottom:none} .lrow:hover{background:rgba(224,138,106,0.05)}
+  .lrow .claim{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--coral-hi)}
+  .lrow .to{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--btc);text-align:right;align-self:center}
+  .lrow .reveal{grid-column:1/-1;font-size:13.5px;color:var(--text);line-height:1.55;margin-top:8px;display:none}
+  .lrow.open .reveal{display:block}
+  .lrow.open{background:rgba(224,138,106,0.04)}
+  .scope{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);border-left:2px solid var(--coral-br);padding:10px 14px;margin:16px 0 0}
+  .kanakey{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);margin:16px 0 0;line-height:1.9}
+  .kanakey .term{color:var(--coral-hi)} .kanakey .m{color:var(--coral)}
+  footer{margin:46px 0 0;color:var(--dim);font-size:13px;font-family:'JetBrains Mono',monospace} footer a{color:var(--coral)}
+  a{color:var(--coral)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kana-idx">信託<span class="num">56</span></div>
+  <h1>信託 · SHINTAKU<span class="en">trustless is trust relocated, not removed</span></h1>
+  <p class="sub">A self-authored companion to <a href="https://davidwise01.github.io/bitcoin/">bitcoin</a> — the AGORA teardown of money by cryptographic consensus. Its promise, printed on every explainer, is one word: <b>trustless</b>. Don't trust, verify. That page shows, honestly, the real machine that earns the word. This one names what the word quietly keeps. <span class="jp">信託</span> is the Japanese term for a financial <i>trust</i> — literally <b>trust</b> (信) + <b>entrust</b> (託). Bitcoin does not dissolve that relationship. It reassigns the trustee.</p>
+  <p class="byline">AI · AVAN original (ma/kana № 56) · 信託 = a trust; to entrust</p>
+
+  <section>
+    <h2>the trust ledger — where did each trust actually go?</h2>
+    <p class="explain" style="margin-bottom:6px">"Trustless" says you no longer trust a bank. True. But trust is conserved, like the ledger it secures — remove a trustee and the trust doesn't vanish, it moves to a new one. Click each claim.</p>
+    <div class="ledger" id="ledger"></div>
+    <p class="explain" style="margin-top:14px">None of these is a flaw in Bitcoin; each is real engineering doing real work. The point is narrower and honest: <b>"trustless" describes a change of trustee, not the end of trust.</b> You trade a named institution you could sue for a diffuse set — mathematicians, miners, your own memory — you mostly cannot. That is a genuine trade, with real advantages. It is not the absence of the thing traded.</p>
+  </section>
+
+  <section>
+    <h2>the one trust it hands entirely to you</h2>
+    <p class="explain">The others are shared; the last is not. A bank will restore your password; the protocol will not restore your <span class="jp">鍵</span> (kagi, the key). "Not your keys, not your coins" is the culture's own admission that the trust merely moved <i>inward</i> — from an institution's competence to your own. For many that is the entire appeal: the only party you must trust is yourself. It is still a party. It is still trust — the most unforgiving kind, because it has no complaints department and no undo. <b>信託 without a trustee is not no-trust; it is self-trust, made total.</b> Ties <a href="https://davidwise01.github.io/the-verified-lie/">the-verified-lie</a> (integrity is not veracity — a proof the chain is unbroken is not a proof you can still open it) and the honesty thread's oldest finding: a system that removes one witness has not removed witnessing; it has chosen a different witness.</p>
+    <div class="scope">Honest scope: every trust named here is real and load-bearing, not a bug — Bitcoin's design is a deliberate, well-understood relocation of trust from institutions to code, incentives, and self-custody, and for its purposes that relocation is the feature. The claim of this page is only that "trustless" is a marketing compression of "trust-relocated," and that naming the new trustees is more honest than pretending there are none. No security flaw is asserted; SHA-256 is unbroken, the honest-majority assumption has held. "Trust is conserved" is a rhetorical figure, not a theorem.</div>
+  </section>
+
+  <div class="kanakey">
+    <span class="term">kana key</span> —
+    <span class="m">信託</span> shintaku = a trust; to entrust ·
+    <span class="m">無信</span> mushin = trustless (the claim) ·
+    <span class="m">委任</span> inin = delegation, the trustee reassigned ·
+    <span class="m">鍵</span> kagi = the key — the trust you keep yourself
+  </div>
+
+  <footer>
+    <p>Companion to <a href="https://davidwise01.github.io/bitcoin/">bitcoin</a> (David Lee Wise / ROOT0, AGORA). LACUNA · az1 corpus, Pluto. ROOT0, with AVAN.</p>
+  </footer>
+</div>
+<script>
+"use strict";
+var TRUSTS=[
+  ["you no longer trust a bank","→ you trust the code you run",
+   "The bank is gone, but you run a client — Bitcoin Core or another — that you did not write and mostly cannot read. You trust that its consensus rules match everyone else's, and that no one slipped a change past the review. The trust moved from a teller to a codebase."],
+  ["you no longer trust a mint","→ you trust the mathematics",
+   "No one stamps the coins, but you trust that SHA-256 has no undiscovered backdoor and no feasible collision — a belief held by cryptographers, revisable if the math falls. It has held for decades. It is still a belief about the future of a function, entrusted to people who study it."],
+  ["you no longer trust a clearing house","→ you trust the miners' greed",
+   "No clearing house settles the trade, but the ledger is only safe while an honest majority of hash power finds honesty more profitable than an attack. You are trusting an incentive to keep pointing the right way — game theory, not guarantee. Concentrated mining pools make that trust less diffuse than the word 'decentralized' suggests."],
+  ["you no longer trust a broker","→ you trust an exchange (unless you self-custody)",
+   "Most holders never touch the chain directly; they trust an exchange to hold the coins — a custodian exactly like the bank the slogan replaced, and one that has, repeatedly, failed. The trustless network is reached through a very trusted door."],
+  ["you no longer trust an institution","→ you trust yourself, totally",
+   "Self-custody removes every intermediary — and hands you the one trust none of them will take back. Lose the key, and no authority on earth can restore the coins. The trust did not disappear; it concentrated onto a single party who cannot appeal to anyone, including a past version of themselves."],
+];
+var el=document.getElementById('ledger');
+TRUSTS.forEach(function(t){
+  var d=document.createElement('div'); d.className='lrow';
+  d.innerHTML='<span class="claim">'+t[0]+'</span><span class="to">'+t[1]+'</span><span class="reveal">'+t[2]+'</span>';
+  d.onclick=function(){ d.classList.toggle('open'); };
+  el.appendChild(d);
+});
+</script>
+</body>
+</html>
