@@ -2,8 +2,8 @@ ROOT0-DLW-CHAIN-v1
 index : 367
 slug  : shintaku
 seal  : 0af11deff2ec48b8f24f3eca935263d85c00ecff437edda92293c43f3a5b2056
-prev  : f73c7df244deaeeed46774a664cae95f9104ab82242196a1ab84572233c53f7a
-link  : 58b6c1ef075b8dd428a8eba3ad68a8272bed13d32ecc9176c9d23613689a006d
-head  : 13f9ace173ef2e60af38912ba329b4afcb5a38b84a0e4495e8d30327f8c99cc2
+prev  : b3fd24cc4184a088fe61ce5f06e29be00bc64af8ef802d20ff0e7925870df1eb
+link  : 655e4d983ccfda796c6256babead83e7b4f2d0a45361f5681eb97e9b207a66a2
+head  : c4d41afeaef76470528856d54d86cf480a0e1c2fc8ebc60fbb9eb8e442585f2b
 
 — the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
